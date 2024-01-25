@@ -22,30 +22,34 @@ public class MBONewcustomerorder {
 		driver.get("http://stg.masterbo.in/admin");
 		driver.manage().window().maximize();
 		WebElement UN = driver.findElement(By.name("username"));
-		UN.sendKeys("roji_callcenter");
+		UN.sendKeys("roji");
 		WebElement PW = driver.findElement(By.name("password"));
 		PW.sendKeys("testing");
 		WebElement Login = driver.findElement(By.xpath("//button[@type='submit' and @class='btn btn-primary']"));
 		Login.click();
 		WebElement Menu = driver.findElement(By.id("button-menu"));
 		Menu.click();
-		//WebElement Customer = driver.findElement(By.id("customer"));
-		//Customer.click();
-		WebElement NewCustomer = driver.findElement(By.id("create_order"));
+		WebElement Customer = driver.findElement(By.id("customer"));
+		Customer.click();
+		WebElement NewCustomer = driver.findElement(By.xpath("//*[@id=\"customer\"]/ul/li[1]/a"));
 		NewCustomer.click();
-//		WebElement SelectStoredropdown = driver.findElement(By.xpath("//*[contains(@class,'form-group required col-sm-3')]"));
-//		SelectStoredropdown.click();
-//		WebElement Select = driver.findElement(By.xpath("//div[contains(@value, '1')]"));
-//	    option.click();
-		WebElement SelectStore = driver.findElement(By.id("select_store"));
+		// To click the dropdown
+		WebElement Select = driver.findElement(By.xpath("//*[@id='content']/div[2]/div/div/div[1]/div[1]/div/div[1]"));
+        Select.click();
+     // To select IDM
+		WebElement SelectStoredropdown = driver.findElement(By.xpath("//*[@class='dropdown__menu_item' and @data-value='1']"));
+		SelectStoredropdown.click();
+        WebElement SelectStore = driver.findElement(By.id("select_store"));
 		SelectStore.click();
 		Thread.sleep(20000);
+		// To click the productdropdown
 		WebElement Selectdropdown = driver.findElement(By.xpath("//*[@id=\"checkout\"]/div[1]/div[1]/div/div[1]"));
 		Selectdropdown.click();
 		//Thread.sleep(100000);
 //		WebElement SelectProduct = driver.findElement(By.id("select_product"));
 //		 Select dropdown = new Select(SelectProduct);
 //		 dropdown.selectByValue("2001");
+		 // To select Product
 		WebElement Selectproduct = driver.findElement(By.xpath("(//*[text()='Acarbose 50mg (Both)'])[2]"));
 		Selectproduct.click();
 //		WebElement element = driver.findElement(By.xpath("(//*[text()='Acarbose 50mg (Both)'])[1]"));
